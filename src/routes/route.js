@@ -1,29 +1,22 @@
 const express = require('express');
-const externalModule = require('./logger')
+const externalModule = require('../logger/logger');
+const newRepo = require('../uti/helper');
+const newRepo1 = require('../validator/for matter');
+
 
 const router = express.Router();
 
-router.get('/test-me', function (req, res) {
-    console.log('The constant in logger route has a value '+externalModule.endpoint)
-    console.log('The current batch is '+externalModule.batch)
-    externalModule.log()
+router.get('/test-me', function(req, res) {
+
     res.send('My first ever api!')
-});
+    externalModule.welcome()
+    newRepo.printDate()
+    newRepo.printMonth()
+    newRepo.getBatchInfo()
+    newRepo1.Trim()
+    newRepo1.changetoLowerCase()
+    newRepo1.changeToUpperCase()
 
-router.get('/test-me1', function (req, res) {
-    res.send('My second ever api!')
-});
-
-router.get('/test-me2', function (req, res) {
-    res.send('My third api!')
-});
-
-router.get('/test-me3', function (req, res) {
-    res.send('My 4th api!')
-});
-
-router.get('/test-me4', function (req, res) {
-    res.send('My last api!')
 });
 
 module.exports = router;
