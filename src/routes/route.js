@@ -1,23 +1,38 @@
 const express = require('express');
-const externalModule = require('../logger/logger');
-const newRepo = require('../uti/helper');
-const newRepo1 = require('../validator/for matter');
-
-
 const router = express.Router();
 
-router.get('/test-me', function(req, res) {
+let players =
 
-    res.send('My first ever api!')
-    externalModule.welcome()
-    newRepo.printDate()
-    newRepo.printMonth()
-    newRepo.getBatchInfo()
-    newRepo1.Trim()
-    newRepo1.changetoLowerCase()
-    newRepo1.changeToUpperCase()
-
-});
-
+    [{
+            "name": "manish",
+            "dob": "1/1/1995",
+            "gender": "male",
+            "city": "delhi",
+            "sports": [
+                "socer"
+            ]
+        },
+        {
+            "name": "suresh",
+            "dob": "1/4/1996",
+            "gender": "male",
+            "city": "ghazipur",
+            "sports": [
+                "cricket"
+            ],
+        },
+        {
+            "name": "rohan",
+            "dob": "1/3/1992",
+            "gender": "male",
+            "city": "pune",
+            "sports": [
+                "hockey"
+            ],
+        },
+    ]
+router.post('/player', function(req, res) {
+    res.send({ data: players, status: true })
+})
 module.exports = router;
 // adding this comment for no reason
